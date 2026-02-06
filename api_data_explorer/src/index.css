@@ -1,1 +1,62 @@
-@import "tailwindcss";
+/* ===== GLOBAL ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #14213D;   /* Deep Navy */
+  color: #FFFFFF;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.app-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px;
+}
+
+/* ===== HEADINGS ===== */
+h1 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #E5E5E5;
+  margin-bottom: 25px;
+}
+
+/* ===== SEARCH INPUT ===== */
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 25px;
+  background-color: #000000;
+  color: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  border-radius: 6px;
+}
+
+input::placeholder {
+  color: #E5E5E5;
+}
+
+/* ===== USER CARD ===== */
+.user-card {
+  background-color: #000000;   /* Black */
+  border: 1px solid #E5E5E5;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+/* ===== TEXT ===== */
+p {
+  color: #E5E5E5;
+  margin: 6px 0;
+}
+
+/* ===== GOLD ACCENT ===== */
+.highlight {
+  color: #FCA311;   /* Gold */
+  font-weight: bold;
+}

@@ -22,7 +22,7 @@ export default function Dashboard() {
       const data = await fetchUsers(page, limit);
       setUsers(data);
     } catch (err) {
-      setError(err.message);
+      setError(err.message || "Failed to load users");
     } finally {
       setLoading(false);
     }
@@ -32,7 +32,7 @@ export default function Dashboard() {
     loadData();
   }, [page]);
 
-  const filteredUsers = users.filter((user) =>
+  const filteredUsers = users.filter(user =>
     user.name.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -40,32 +40,20 @@ export default function Dashboard() {
   if (error) return <Error message={error} onRetry={loadData} />;
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4">
-      <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-xl p-6">
-        
-        {/* Header */}
-        <div className="mb-6 text-center">
-          <h2 className="text-2xl font-semibold text-gray-800">
-            User Directory
-          </h2>
-          <p className="text-sm text-gray-500">
-            Browse users fetched from public API
-          </p>
-        </div>
+    <div className="app-container">
+      {/* Header */}
+      <h1>API Data Explorer</h1>
+      <p className="subtitle">Browse users fetched from public API</p>
 
-        {/* Filter */}
-        <Filter onSearch={setSearch} />
+      {/* Search Filter */}
+      <Filter onSearch={setSearch} />
 
-        {/* Data */}
-        <div className="mt-4">
-          <DataList users={filteredUsers} />
-        </div>
+      {/* Data List */}
+      <DataList users={filteredUsers} />
 
-        {/* Pagination */}
-        <div className="mt-6 flex justify-center">
-          <Pagination page={page} setPage={setPage} />
-        </div>
-
+      {/* Pagination */}
+      <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+        <Pagination page={page} setPage={setPage} />
       </div>
     </div>
   );
