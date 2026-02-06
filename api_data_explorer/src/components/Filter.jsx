@@ -1,6 +1,7 @@
+
 import React from 'react'
 
-const App = () => {
+const Pagination = () => {
   return (
     <div>
       
@@ -8,4 +9,4 @@ const App = () => {
   )
 }
 
-export default App
+export default Pagination
